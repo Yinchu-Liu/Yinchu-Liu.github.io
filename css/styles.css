@@ -638,31 +638,13 @@ nav {
 
 /* Visitor Map Section */
 .visitor-map-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 30px auto;
-    text-align: center;
-    flex-direction: column;
     width: 100%;
 }
 
 .globe-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
-}
-
-.visitor-map-container #clstr_globe {
-    margin: 0 auto !important;
-    display: block !important;
-}
-
-.visitor-map-container iframe {
-    margin: 0 auto !important;
-    display: block !important;
 }
 
 .map-caption {
@@ -670,6 +652,7 @@ nav {
     color: var(--text-light);
     font-style: italic;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 #visitor-map {
