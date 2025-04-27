@@ -248,6 +248,19 @@ nav {
     font-size: 1.1rem;
 }
 
+.highlight-text {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    margin: 25px 0;
+    color: var(--secondary-color);
+}
+
+.highlight-text strong {
+    color: var(--primary-color);
+}
+
 /* Experience & Education Sections */
 .timeline {
     position: relative;
