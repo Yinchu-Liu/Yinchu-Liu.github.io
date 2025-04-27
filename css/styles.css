@@ -636,6 +636,30 @@ nav {
     font-weight: 500;
 }
 
+/* Visitor Map Section */
+.visitor-map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.visitor-map-container script {
+    display: block;
+    margin: 0 auto;
+}
+
+#visitor-map {
+    background-color: var(--light-color);
+    padding: 40px 0;
+}
+
+#visitor-map .section-title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 /* Footer */
 footer {
     background-color: var(--secondary-color);
