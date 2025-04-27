@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yinchu Liu - Personal Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">YL</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-btn">
+                    <div class="menu-btn__burger"></div>
+                </div>
+            </nav>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Yinchu Liu</h1>
+                    <p class="subtitle">PhD Student</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/yinchu-liu-9261a618b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Yinchu-Liu" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:yinchu.liu.1@ens.etsmtl.ca"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/Teaser_Portait.jpg" alt="Yinchu Liu">
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm Yinchu Liu, a PhD student supervised by Prof. Sheldon Andrews and Prof. Kenny Erleben. My expertise spans rigid body simulation, collision detection, graph partitioning, reinforcement learning, and supervised learning.</p>
+                    <p>I'm passionate about developing advanced algorithms for computer graphics and physics-based simulations. My research focuses on using machine learning techniques to enhance numerical solvers, as well as to improve both discrete (DCD) and continuous collision detection (CCD), aiming to increase the efficiency and accuracy of complex simulations.</p>
+                    <p>Outside of research and coding, I enjoy exploring new technologies and contributing to open-source projects in computer graphics and simulation.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <span class="date">September 2022 - December 2022</span>
+                        <h3>Research Assistant</h3>
+                        <h4>École de Technologie Supérieure</h4>
+                        <p>Montreal, Quebec</p>
+                        <ul>
+                            <li>Developed and implemented solver algorithms targeting contact-rich rigid multibody systems</li>
+                            <li>Tested different acceleration techniques and evaluated the performance of acceleration methods using the convergence rate metric</li>
+                            <li>Compared acceleration methods with baseline methods such as Chebyshev acceleration and NNCG under the supervision of Prof. Sheldon Andrews and Prof. Kenny Erleben</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <span class="date">June 2019 - September 2019</span>
+                        <h3>Research Assistant</h3>
+                        <h4>University of British Columbia</h4>
+                        <p>Vancouver, British Columbia</p>
+                        <ul>
+                            <li>Verified the continuous model by creating a discrete model for a micro-fluid system using Python and MATLAB</li>
+                            <li>Optimized locomotion at small scales under the supervision of Prof. Gwynn Elfring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <span class="date">Jan 2022 - Dec 2026 (expected)</span>
+                        <h3>Doctorate in Engineering</h3>
+                        <h4>École de Technologie Supérieure</h4>
+                        <p>Supervisor: Sheldon Andrews and Kenny Erleben</p>
+                        <p>Montréal, Canada</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <span class="date">Sept 2020 - Aug 2022</span>
+                        <h3>Master in Information Technology Engineering</h3>
+                        <h4>École de Technologie Supérieure</h4>
+                        <p>Supervisor: Sheldon Andrews</p>
+                        <p>Montréal, Canada</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <span class="date">Aug 2016 - July 2020</span>
+                        <h3>Bachelor in Mechanical Engineering</h3>
+                        <h4>Jilin University</h4>
+                        <p>Changchun, China</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publications-container">
+                <div class="publication-item">
+                    <h3>Graph Partitioning Algorithms for Rigid Body Simulations</h3>
+                    <p class="publication-authors">Yinchu Liu, Sheldon Andrews</p>
+                    <p class="publication-venue">Eurographics, 2022</p>
+                    <div class="publication-links">
+                        <a href="https://profs.etsmtl.ca/sandrews/pdf/EG22_graph_partitioning.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="https://doi.org/10.2312/egs.20221036" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <h4>C++</h4>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h4>Python</h4>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h4>PyTorch</h4>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-cubes"></i></div>
+                            <h4>OpenGL</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Developer Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
+                            <h4>VS 2019</h4>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
+                            <h4>VS Code</h4>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
+                            <h4>Eclipse</h4>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                            <h4>Git</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/Teaser_UVMapping.png" alt="UV Mapping Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>UV Mapping Project</h3>
+                        <p>An OpenGL-based application for 3D model UV mapping and texture application. Features include model loading with UV coordinates, texture mapping, and Phong lighting implementation.</p>
+                        <div class="project-tags">
+                            <span>C++</span>
+                            <span>OpenGL</span>
+                            <span>GLFW</span>
+                            <span>GLM</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Yinchu-Liu/UV-Mapping" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="img/Teaser_Partitioning.pdf" target="_blank">
+                            <img src="img/Teaser_Partitioning.jpg" alt="Graph Partitioning for Rigid Body Simulations">
+                            <div class="image-overlay">
+                                <span>View Full Teaser</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <h3>Graph Partitioning for Rigid Body Simulations</h3>
+                        <p>Research project focusing on graph partitioning algorithms to accelerate rigid body simulations. Developed novel techniques to improve convergence rates in contact-rich multibody systems by optimizing constraint distribution across parallel solvers.</p>
+                        <div class="project-tags">
+                            <span>C++</span>
+                            <span>OpenGL</span>
+                            <span>Physics Simulation</span>
+                            <span>Graph Theory</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1qLDGTLEv6VtbIlAXSV02h6u2odISAttQ/view" target="_blank"><i class="fas fa-video"></i> Demo Video</a>
+                            <a href="https://profs.etsmtl.ca/sandrews/pdf/EG22_graph_partitioning.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Publication</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:yinchu.liu.1@ens.etsmtl.ca">yinchu.liu.1@ens.etsmtl.ca</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <p><a href="https://www.linkedin.com/in/yinchu-liu-9261a618b/" target="_blank">LinkedIn Profile</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <p><a href="https://github.com/Yinchu-Liu" target="_blank">GitHub Profile</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><a href="https://maps.google.com/?q=École+de+technologie+supérieure+ÉTS,+Montréal" target="_blank">École de technologie supérieure (ÉTS), Montréal</a></p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Yinchu Liu. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/yinchu-liu-9261a618b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Yinchu-Liu" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:yinchu.liu.1@ens.etsmtl.ca"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
