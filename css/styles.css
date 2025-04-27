@@ -651,6 +651,13 @@ nav {
     margin: 0 auto;
 }
 
+/* Add styling to reduce the size of the ClusterMaps globe */
+.visitor-map-container #clstr_globe {
+    transform: scale(0.5);
+    transform-origin: center;
+    margin: -100px 0; /* Adjust vertical space to account for scaling */
+}
+
 .map-caption {
     margin-top: 15px;
     color: var(--text-light);
