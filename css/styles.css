@@ -623,6 +623,19 @@ nav {
     width: 100%;
 }
 
+.form-note {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.form-note a {
+    font-weight: 500;
+}
+
 /* Footer */
 footer {
     background-color: var(--secondary-color);
