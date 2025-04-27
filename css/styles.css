@@ -643,11 +643,19 @@ nav {
     align-items: center;
     margin: 30px auto;
     text-align: center;
+    flex-direction: column;
 }
 
 .visitor-map-container script {
     display: block;
     margin: 0 auto;
+}
+
+.map-caption {
+    margin-top: 15px;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
 #visitor-map {
