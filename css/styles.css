@@ -644,18 +644,25 @@ nav {
     margin: 30px auto;
     text-align: center;
     flex-direction: column;
+    width: 100%;
 }
 
-.visitor-map-container script {
-    display: block;
+.globe-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
 }
 
-/* Add styling to reduce the size of the ClusterMaps globe */
 .visitor-map-container #clstr_globe {
-    transform: scale(0.5);
-    transform-origin: center;
-    margin: -100px 0; /* Adjust vertical space to account for scaling */
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.visitor-map-container iframe {
+    margin: 0 auto !important;
+    display: block !important;
 }
 
 .map-caption {
