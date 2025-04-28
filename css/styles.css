@@ -645,6 +645,10 @@ nav {
     text-align: center;
 }
 
+#visitor-map .section-title::after {
+    display: none;
+}
+
 /* Footer */
 footer {
     background-color: var(--secondary-color);
