@@ -301,6 +301,36 @@ nav {
     position: relative;
 }
 
+.timeline-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.timeline-logo {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    margin-right: 20px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.timeline-info {
+    flex: 1;
+}
+
 .timeline-item-content::after {
     content: '';
     position: absolute;
