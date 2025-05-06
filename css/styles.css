@@ -392,28 +392,21 @@ nav {
 
 /* Skills Section */
 .skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.skill-category h3 {
-    margin-bottom: 20px;
-    color: var(--secondary-color);
     text-align: center;
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .skill-item {
+    text-align: center;
     background-color: white;
     border-radius: var(--border-radius);
     padding: 20px;
-    text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
