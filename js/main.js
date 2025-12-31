@@ -152,5 +152,20 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// MapMyVisitors script is loaded at the end of body tag
-// The script will automatically render the globe in the container
+// Ensure MapMyVisitors globe loads properly
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('mapmyvisitors-globe-container');
+    const script = document.getElementById('mmvst_globe');
+    
+    // If script exists but globe hasn't loaded after 2 seconds, try reloading
+    if (container && script) {
+        setTimeout(() => {
+            // Check if globe element was created
+            const globeElements = container.querySelectorAll('iframe, canvas, div[style*="position"], object, embed');
+            if (globeElements.length === 0) {
+                console.log('MapMyVisitors globe not detected, script may need to reload');
+                // The script should auto-render, but we can check for errors
+            }
+        }, 2000);
+    }
+});

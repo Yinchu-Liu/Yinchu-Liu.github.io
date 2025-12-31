@@ -681,26 +681,29 @@ nav {
 #mapmyvisitors-globe-container {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 30px auto;
+    display: block;
     min-height: 500px;
     position: relative;
     background-color: transparent;
+    text-align: center;
 }
 
 #mapmyvisitors-globe-container iframe,
 #mapmyvisitors-globe-container canvas,
 #mapmyvisitors-globe-container > div,
 #mapmyvisitors-globe-container object,
-#mapmyvisitors-globe-container embed {
+#mapmyvisitors-globe-container embed,
+#mapmyvisitors-globe-container script + * {
     width: 100% !important;
     max-width: 800px !important;
     height: 500px !important;
+    min-height: 500px !important;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     border: none;
+    display: block !important;
+    margin: 0 auto;
 }
 
 .globe-container {
