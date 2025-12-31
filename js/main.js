@@ -192,15 +192,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
     
-    // Ensure ClustrMaps loads properly
-    const clustrMapsContainer = document.getElementById('clustrmaps-globe-container');
-    if (clustrMapsContainer && !document.getElementById('clstr_globe')) {
+    // Ensure MapMyVisitors loads properly
+    const mapMyVisitorsContainer = document.getElementById('mapmyvisitors-globe-container');
+    if (mapMyVisitorsContainer && !document.getElementById('mmvst_globe')) {
         const script = document.createElement('script');
         script.type = 'text/javascript';
-        script.id = 'clstr_globe';
-        script.src = 'https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n';
+        script.id = 'mmvst_globe';
+        script.src = 'https://mapmyvisitors.com/globe.js?d=eEedZTLtQ8dn8Zi3XS_RmuKi8YCd1Hd_e20df4OzvAc';
         script.async = true;
-        clustrMapsContainer.appendChild(script);
+        mapMyVisitorsContainer.appendChild(script);
     }
 });
 

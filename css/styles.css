@@ -726,7 +726,7 @@ nav {
     font-size: 1.1rem;
 }
 
-#clustrmaps-globe-container {
+#mapmyvisitors-globe-container {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -737,9 +737,9 @@ nav {
     position: relative;
 }
 
-#clustrmaps-globe-container iframe,
-#clustrmaps-globe-container canvas,
-#clustrmaps-globe-container > div {
+#mapmyvisitors-globe-container iframe,
+#mapmyvisitors-globe-container canvas,
+#mapmyvisitors-globe-container > div {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 }
