@@ -153,19 +153,32 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Ensure MapMyVisitors globe loads properly
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const container = document.getElementById('mapmyvisitors-globe-container');
     const script = document.getElementById('mmvst_globe');
     
-    // If script exists but globe hasn't loaded after 2 seconds, try reloading
     if (container && script) {
+        // Check if script loaded
+        script.onerror = function() {
+            console.error('MapMyVisitors script failed to load. Check if the site ID is correct.');
+        };
+        
+        script.onload = function() {
+            console.log('MapMyVisitors script loaded successfully');
+        };
+        
+        // Check if globe rendered after a delay
         setTimeout(() => {
-            // Check if globe element was created
-            const globeElements = container.querySelectorAll('iframe, canvas, div[style*="position"], object, embed');
+            const globeElements = container.querySelectorAll('iframe, canvas, div[style*="position"], object, embed, div[id*="globe"]');
             if (globeElements.length === 0) {
-                console.log('MapMyVisitors globe not detected, script may need to reload');
-                // The script should auto-render, but we can check for errors
+                console.warn('MapMyVisitors globe not detected. Possible issues:');
+                console.warn('1. Check browser console for errors');
+                console.warn('2. Verify WebGL is enabled (visit get.webgl.org)');
+                console.warn('3. Check if ad blockers are blocking the script');
+                console.warn('4. Verify MapMyVisitors account is active');
+            } else {
+                console.log('MapMyVisitors globe detected:', globeElements.length, 'element(s)');
             }
-        }, 2000);
+        }, 3000);
     }
 });
