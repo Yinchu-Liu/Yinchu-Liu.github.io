@@ -682,19 +682,18 @@ nav {
     width: 100%;
     max-width: 800px;
     margin: 30px auto;
-    display: block;
     min-height: 500px;
     position: relative;
     background-color: transparent;
     text-align: center;
+    display: block;
 }
 
 #mapmyvisitors-globe-container iframe,
 #mapmyvisitors-globe-container canvas,
-#mapmyvisitors-globe-container > div,
+#mapmyvisitors-globe-container > div:not(script),
 #mapmyvisitors-globe-container object,
-#mapmyvisitors-globe-container embed,
-#mapmyvisitors-globe-container script + * {
+#mapmyvisitors-globe-container embed {
     width: 100% !important;
     max-width: 800px !important;
     height: 500px !important;
@@ -704,6 +703,8 @@ nav {
     border: none;
     display: block !important;
     margin: 0 auto;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .globe-container {
