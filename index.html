@@ -293,27 +293,15 @@
         <div class="container">
             <h2 class="section-title">Visitor Map</h2>
             <div class="visitor-map-container">
-                <div class="visitor-ip-display">
-                    <div class="current-visitor-info">
-                        <h3>Current Visitor Information</h3>
-                        <div class="visitor-details">
-                            <p><strong>IP Address:</strong> <span id="current-visitor-ip">Loading...</span></p>
-                            <p><strong>Location:</strong> <span id="current-visitor-location">Loading...</span></p>
-                            <p><strong>Browser:</strong> <span id="current-visitor-browser">Loading...</span></p>
-                        </div>
-                    </div>
-                    <div class="all-visitors-link">
-                        <a href="https://mapmyvisitors.com" target="_blank" class="btn btn-visitor-dashboard">
-                            <i class="fas fa-chart-line"></i> View All Visitor IPs in Dashboard
-                        </a>
-                    </div>
-                </div>
                 <center>
-                    <div id="mapmyvisitors-globe-container">
-                        <script type="text/javascript" id="mmvst_globe" src="https://mapmyvisitors.com/globe.js?d=7uxrke_8xHCD-KnRjecmQKNRtMwC19DZnUlwKj77klA"></script>
-                    </div>
+                    <div id="mapmyvisitors-globe-container"></div>
                 </center>
                 <p class="map-caption">Map shows visitor locations by IP address</p>
+                <div class="all-visitors-link">
+                    <a href="https://mapmyvisitors.com" target="_blank" class="btn btn-visitor-dashboard">
+                        <i class="fas fa-chart-line"></i> View All Visitor IPs in Dashboard
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -333,5 +321,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script type="text/javascript" id="mmvst_globe" src="https://mapmyvisitors.com/globe.js?d=7uxrke_8xHCD-KnRjecmQKNRtMwC19DZnUlwKj77klA"></script>
 </body>
 </html>
