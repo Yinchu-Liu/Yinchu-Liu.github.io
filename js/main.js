@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const script = document.createElement('script');
         script.type = 'text/javascript';
         script.id = 'mmvst_globe';
-        script.src = 'https://mapmyvisitors.com/globe.js?d=eEedZTLtQ8dn8Zi3XS_RmuKi8YCd1Hd_e20df4OzvAc';
+        script.src = 'https://mapmyvisitors.com/globe.js?d=7uxrke_8xHCD-KnRjecmQKNRtMwC19DZnUlwKj77klA';
         script.async = true;
         mapMyVisitorsContainer.appendChild(script);
     }
