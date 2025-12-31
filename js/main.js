@@ -158,43 +158,116 @@ document.addEventListener('DOMContentLoaded', () => {
     const visitorLocationElement = document.getElementById('visitor-location');
     const visitorMapCanvas = document.getElementById('visitor-map-canvas');
     
+    // Debug: Check if elements exist
+    if (!visitorIpElement || !visitorLocationElement) {
+        console.error('Visitor map elements not found');
+        return;
+    }
+    
     if (visitorIpElement && visitorLocationElement) {
         let visitorIp = '';
         
-        // Fetch visitor IP and location
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                visitorIp = data.ip;
-                visitorIpElement.textContent = visitorIp;
-                
-                // Get location data for the IP
-                return fetch(`https://ipapi.co/${visitorIp}/json/`);
-            })
-            .then(response => response.json())
-            .then(locationData => {
-                if (locationData.error) {
-                    // Fallback to alternative API
-                    return fetch(`https://ip-api.com/json/${visitorIp}`)
-                        .then(res => res.json());
+        // Try multiple IP APIs with better CORS support
+        const ipApis = [
+            'https://api.ipify.org?format=json',
+            'https://api64.ipify.org?format=json',
+            'https://ipapi.co/ip/'
+        ];
+        
+        // Function to get IP
+        const getIP = async () => {
+            for (const api of ipApis) {
+                try {
+                    if (api.includes('ipify')) {
+                        const response = await fetch(api);
+                        const data = await response.json();
+                        return data.ip;
+                    } else {
+                        const response = await fetch(api);
+                        const text = await response.text();
+                        return text.trim();
+                    }
+                } catch (e) {
+                    continue;
                 }
-                return locationData;
+            }
+            throw new Error('All IP APIs failed');
+        };
+        
+        // Function to get location
+        const getLocation = async (ip) => {
+            const locationApis = [
+                `https://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,lat,lon,query`,
+                `https://ipapi.co/${ip}/json/`
+            ];
+            
+            for (const api of locationApis) {
+                try {
+                    const response = await fetch(api);
+                    const data = await response.json();
+                    
+                    if (api.includes('ip-api.com')) {
+                        if (data.status === 'success') {
+                            return {
+                                country: data.country,
+                                city: data.city,
+                                region: data.regionName,
+                                latitude: data.lat,
+                                longitude: data.lon,
+                                ip: data.query
+                            };
+                        }
+                    } else {
+                        if (!data.error && data.country_name) {
+                            return {
+                                country: data.country_name,
+                                city: data.city,
+                                region: data.region,
+                                latitude: data.latitude,
+                                longitude: data.longitude,
+                                ip: ip
+                            };
+                        }
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+            return null;
+        };
+        
+        // Add timeout to prevent infinite loading
+        const timeout = setTimeout(() => {
+            if (visitorIpElement.textContent === 'Loading...') {
+                visitorIpElement.textContent = 'Request timeout';
+                visitorLocationElement.textContent = 'Please refresh the page';
+                loadClustrMaps();
+            }
+        }, 10000); // 10 second timeout
+        
+        // Main execution
+        getIP()
+            .then(ip => {
+                clearTimeout(timeout);
+                visitorIp = ip;
+                visitorIpElement.textContent = ip;
+                return getLocation(ip);
             })
             .then(locationData => {
-                if (locationData.country_name || locationData.country) {
-                    const location = locationData.country_name || locationData.country;
+                clearTimeout(timeout);
+                if (locationData && locationData.country) {
+                    const location = locationData.country;
                     const city = locationData.city || '';
-                    const region = locationData.region || locationData.regionName || '';
+                    const region = locationData.region || '';
                     const locationString = city && region 
                         ? `${city}, ${region}, ${location}` 
                         : location;
                     visitorLocationElement.textContent = locationString;
                     
-                    // Display on map using Leaflet or similar
+                    // Display on map
                     if (locationData.latitude && locationData.longitude) {
                         displayVisitorOnMap(locationData.latitude, locationData.longitude, visitorIp);
                     } else {
-                        // Fallback: show ClustrMaps
                         loadClustrMaps();
                     }
                 } else {
@@ -203,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => {
+                clearTimeout(timeout);
                 console.error('Error fetching visitor data:', error);
                 visitorIpElement.textContent = 'Unable to retrieve';
                 visitorLocationElement.textContent = 'Unable to determine location';
