@@ -645,6 +645,37 @@ nav {
     width: 100%;
 }
 
+.visitor-ip-info {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.visitor-ip-info p {
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.visitor-ip-info strong {
+    color: var(--primary-color);
+}
+
+#visitor-ip, #visitor-location {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+#visitor-map-canvas {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
 .globe-container {
     width: 100%;
     margin: 0 auto;

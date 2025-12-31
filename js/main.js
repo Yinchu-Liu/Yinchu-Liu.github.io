@@ -151,3 +151,113 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Visitor IP Tracking
+document.addEventListener('DOMContentLoaded', () => {
+    const visitorIpElement = document.getElementById('visitor-ip');
+    const visitorLocationElement = document.getElementById('visitor-location');
+    const visitorMapCanvas = document.getElementById('visitor-map-canvas');
+    
+    if (visitorIpElement && visitorLocationElement) {
+        let visitorIp = '';
+        
+        // Fetch visitor IP and location
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                visitorIp = data.ip;
+                visitorIpElement.textContent = visitorIp;
+                
+                // Get location data for the IP
+                return fetch(`https://ipapi.co/${visitorIp}/json/`);
+            })
+            .then(response => response.json())
+            .then(locationData => {
+                if (locationData.error) {
+                    // Fallback to alternative API
+                    return fetch(`https://ip-api.com/json/${visitorIp}`)
+                        .then(res => res.json());
+                }
+                return locationData;
+            })
+            .then(locationData => {
+                if (locationData.country_name || locationData.country) {
+                    const location = locationData.country_name || locationData.country;
+                    const city = locationData.city || '';
+                    const region = locationData.region || locationData.regionName || '';
+                    const locationString = city && region 
+                        ? `${city}, ${region}, ${location}` 
+                        : location;
+                    visitorLocationElement.textContent = locationString;
+                    
+                    // Display on map using Leaflet or similar
+                    if (locationData.latitude && locationData.longitude) {
+                        displayVisitorOnMap(locationData.latitude, locationData.longitude, visitorIp);
+                    } else {
+                        // Fallback: show ClustrMaps
+                        loadClustrMaps();
+                    }
+                } else {
+                    visitorLocationElement.textContent = 'Unable to determine location';
+                    loadClustrMaps();
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching visitor data:', error);
+                visitorIpElement.textContent = 'Unable to retrieve';
+                visitorLocationElement.textContent = 'Unable to determine location';
+                loadClustrMaps();
+            });
+    }
+    
+    function loadClustrMaps() {
+        // Fallback to ClustrMaps if custom solution fails
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.id = 'clstr_globe';
+        script.src = 'https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n';
+        script.async = true;
+        if (visitorMapCanvas) {
+            visitorMapCanvas.appendChild(script);
+        }
+    }
+    
+    function displayVisitorOnMap(lat, lon, ip) {
+        // Use Leaflet.js for interactive map
+        if (!window.L) {
+            // Load Leaflet CSS and JS
+            const leafletCSS = document.createElement('link');
+            leafletCSS.rel = 'stylesheet';
+            leafletCSS.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+            document.head.appendChild(leafletCSS);
+            
+            const leafletJS = document.createElement('script');
+            leafletJS.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+            leafletJS.onload = () => initMap(lat, lon, ip);
+            document.head.appendChild(leafletJS);
+        } else {
+            initMap(lat, lon, ip);
+        }
+    }
+    
+    function initMap(lat, lon, ip) {
+        if (visitorMapCanvas) {
+            visitorMapCanvas.innerHTML = '';
+            visitorMapCanvas.style.width = '100%';
+            visitorMapCanvas.style.height = '400px';
+            visitorMapCanvas.style.maxWidth = '800px';
+            visitorMapCanvas.style.margin = '0 auto';
+            visitorMapCanvas.style.borderRadius = '10px';
+            visitorMapCanvas.style.overflow = 'hidden';
+            
+            const map = L.map(visitorMapCanvas).setView([lat, lon], 5);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            const marker = L.marker([lat, lon]).addTo(map);
+            marker.bindPopup(`<b>Visitor IP:</b><br>${ip}`).openPopup();
+        }
+    }
+});
