@@ -152,10 +152,47 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Ensure ClustrMaps loads properly
+// Visitor IP and Information Display
 document.addEventListener('DOMContentLoaded', () => {
-    // ClustrMaps script should load automatically from the HTML
-    // This ensures it loads even if there are timing issues
+    // Display current visitor's IP and information
+    const visitorIpElement = document.getElementById('current-visitor-ip');
+    const visitorLocationElement = document.getElementById('current-visitor-location');
+    const visitorBrowserElement = document.getElementById('current-visitor-browser');
+    
+    if (visitorIpElement) {
+        // Get browser information
+        const browserInfo = getBrowserInfo();
+        if (visitorBrowserElement) {
+            visitorBrowserElement.textContent = browserInfo;
+        }
+        
+        // Fetch IP address
+        fetchVisitorIP()
+            .then(ip => {
+                visitorIpElement.textContent = ip;
+                return fetchVisitorLocation(ip);
+            })
+            .then(locationData => {
+                if (locationData && visitorLocationElement) {
+                    const location = locationData.country || 'Unknown';
+                    const city = locationData.city || '';
+                    const region = locationData.region || '';
+                    const locationString = city && region 
+                        ? `${city}, ${region}, ${location}` 
+                        : location;
+                    visitorLocationElement.textContent = locationString;
+                } else if (visitorLocationElement) {
+                    visitorLocationElement.textContent = 'Unable to determine';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching visitor data:', error);
+                if (visitorIpElement) visitorIpElement.textContent = 'Unable to retrieve';
+                if (visitorLocationElement) visitorLocationElement.textContent = 'Unable to determine';
+            });
+    }
+    
+    // Ensure ClustrMaps loads properly
     const clustrMapsContainer = document.getElementById('clustrmaps-globe-container');
     if (clustrMapsContainer && !document.getElementById('clstr_globe')) {
         const script = document.createElement('script');
@@ -166,3 +203,89 @@ document.addEventListener('DOMContentLoaded', () => {
         clustrMapsContainer.appendChild(script);
     }
 });
+
+// Function to get browser information
+function getBrowserInfo() {
+    const ua = navigator.userAgent;
+    let browser = 'Unknown';
+    
+    if (ua.indexOf('Chrome') > -1 && ua.indexOf('Edg') === -1) {
+        browser = 'Chrome';
+    } else if (ua.indexOf('Firefox') > -1) {
+        browser = 'Firefox';
+    } else if (ua.indexOf('Safari') > -1 && ua.indexOf('Chrome') === -1) {
+        browser = 'Safari';
+    } else if (ua.indexOf('Edg') > -1) {
+        browser = 'Edge';
+    } else if (ua.indexOf('Opera') > -1 || ua.indexOf('OPR') > -1) {
+        browser = 'Opera';
+    }
+    
+    return browser;
+}
+
+// Function to fetch visitor IP
+async function fetchVisitorIP() {
+    const ipApis = [
+        'https://api.ipify.org?format=json',
+        'https://api64.ipify.org?format=json',
+        'https://ipapi.co/ip/'
+    ];
+    
+    for (const api of ipApis) {
+        try {
+            if (api.includes('ipify')) {
+                const response = await fetch(api);
+                const data = await response.json();
+                return data.ip;
+            } else {
+                const response = await fetch(api);
+                const text = await response.text();
+                return text.trim();
+            }
+        } catch (e) {
+            continue;
+        }
+    }
+    throw new Error('All IP APIs failed');
+}
+
+// Function to fetch visitor location
+async function fetchVisitorLocation(ip) {
+    const locationApis = [
+        `https://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,lat,lon,query`,
+        `https://ipapi.co/${ip}/json/`
+    ];
+    
+    for (const api of locationApis) {
+        try {
+            const response = await fetch(api);
+            const data = await response.json();
+            
+            if (api.includes('ip-api.com')) {
+                if (data.status === 'success') {
+                    return {
+                        country: data.country,
+                        city: data.city,
+                        region: data.regionName,
+                        latitude: data.lat,
+                        longitude: data.lon
+                    };
+                }
+            } else {
+                if (!data.error && data.country_name) {
+                    return {
+                        country: data.country_name,
+                        city: data.city,
+                        region: data.region,
+                        latitude: data.latitude,
+                        longitude: data.longitude
+                    };
+                }
+            }
+        } catch (e) {
+            continue;
+        }
+    }
+    return null;
+}
