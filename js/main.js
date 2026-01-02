@@ -152,33 +152,15 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Ensure MapMyVisitors globe loads properly
-window.addEventListener('load', () => {
-    const container = document.getElementById('mapmyvisitors-globe-container');
-    const script = document.getElementById('mmvst_globe');
-    
-    if (container && script) {
-        // Check if script loaded
-        script.onerror = function() {
-            console.error('MapMyVisitors script failed to load. Check if the site ID is correct.');
-        };
-        
-        script.onload = function() {
-            console.log('MapMyVisitors script loaded successfully');
-        };
-        
-        // Check if globe rendered after a delay
-        setTimeout(() => {
-            const globeElements = container.querySelectorAll('iframe, canvas, div[style*="position"], object, embed, div[id*="globe"]');
-            if (globeElements.length === 0) {
-                console.warn('MapMyVisitors globe not detected. Possible issues:');
-                console.warn('1. Check browser console for errors');
-                console.warn('2. Verify WebGL is enabled (visit get.webgl.org)');
-                console.warn('3. Check if ad blockers are blocking the script');
-                console.warn('4. Verify MapMyVisitors account is active');
-            } else {
-                console.log('MapMyVisitors globe detected:', globeElements.length, 'element(s)');
-            }
-        }, 3000);
+// Ensure ClustrMaps loads properly
+document.addEventListener('DOMContentLoaded', () => {
+    const clustrMapsContainer = document.getElementById('clustrmaps-globe-container');
+    if (clustrMapsContainer && !document.getElementById('clstr_globe')) {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.id = 'clstr_globe';
+        script.src = 'https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n';
+        script.async = true;
+        clustrMapsContainer.appendChild(script);
     }
 });

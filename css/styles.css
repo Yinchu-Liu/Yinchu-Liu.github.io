@@ -678,33 +678,31 @@ nav {
     font-size: 1.1rem;
 }
 
-#mapmyvisitors-globe-container {
+#clustrmaps-globe-container {
     width: 100%;
     max-width: 800px;
     margin: 30px auto;
-    min-height: 500px;
+    min-height: 400px;
     position: relative;
     background-color: transparent;
     text-align: center;
     display: block;
 }
 
-#mapmyvisitors-globe-container iframe,
-#mapmyvisitors-globe-container canvas,
-#mapmyvisitors-globe-container > div:not(script),
-#mapmyvisitors-globe-container object,
-#mapmyvisitors-globe-container embed {
+#clustrmaps-globe-container iframe,
+#clustrmaps-globe-container canvas,
+#clustrmaps-globe-container > div,
+#clustrmaps-globe-container object,
+#clustrmaps-globe-container embed {
     width: 100% !important;
     max-width: 800px !important;
-    height: 500px !important;
-    min-height: 500px !important;
+    height: 400px !important;
+    min-height: 400px !important;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     border: none;
     display: block !important;
     margin: 0 auto;
-    visibility: visible !important;
-    opacity: 1 !important;
 }
 
 .globe-container {
