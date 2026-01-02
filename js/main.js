@@ -152,15 +152,5 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Ensure ClustrMaps loads properly
-document.addEventListener('DOMContentLoaded', () => {
-    const clustrMapsContainer = document.getElementById('clustrmaps-globe-container');
-    if (clustrMapsContainer && !document.getElementById('clstr_globe')) {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.id = 'clstr_globe';
-        script.src = 'https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n';
-        script.async = true;
-        clustrMapsContainer.appendChild(script);
-    }
-});
+// ClustrMaps script is loaded at the end of body tag
+// It will automatically render the globe
