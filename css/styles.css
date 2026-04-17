@@ -267,7 +267,80 @@ nav {
     color: var(--primary-color);
 }
 
-/* Experience & Education Sections */
+/* Experience & Education Sections - Pranav Style */
+.experience-list, .education-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-item, .education-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.experience-item:last-child, .education-item:last-child {
+    border-bottom: none;
+}
+
+.experience-date, .education-date {
+    min-width: 160px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.experience-content, .education-content {
+    flex: 1;
+}
+
+.experience-content h3, .education-content h3 {
+    color: var(--text-color);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.experience-content h4, .education-content h4 {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.experience-content h4 a, .education-content h4 a {
+    color: var(--primary-color);
+}
+
+.experience-content h4 a:hover, .education-content h4 a:hover {
+    color: var(--accent-color);
+}
+
+.experience-content .location, .education-content .location {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.experience-content ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.experience-content ul li {
+    margin-bottom: 5px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.education-content .supervisor {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Legacy Timeline Styles (kept for compatibility) */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -767,6 +840,17 @@ footer {
 
     .contact-container {
         grid-template-columns: 1fr;
+    }
+
+    /* Responsive Experience & Education */
+    .experience-item, .education-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .experience-date, .education-date {
+        min-width: auto;
+        font-size: 0.9rem;
     }
 
     .timeline::after {
