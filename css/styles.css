@@ -286,16 +286,16 @@ nav {
 }
 
 .experience-logo, .education-logo {
-    width: 70px;
-    height: 70px;
-    min-width: 70px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
     border-radius: var(--border-radius);
     overflow: hidden;
     background-color: var(--card-bg);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .experience-logo img, .education-logo img {
@@ -868,9 +868,9 @@ footer {
     }
 
     .experience-logo, .education-logo {
-        width: 60px;
-        height: 60px;
-        min-width: 60px;
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
     }
 
     .experience-date, .education-date {
