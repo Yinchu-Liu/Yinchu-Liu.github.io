@@ -267,7 +267,7 @@ nav {
     color: var(--primary-color);
 }
 
-/* Experience & Education Sections - Pranav Style */
+/* Experience & Education Sections - Pranav Style with Logos */
 .experience-list, .education-list {
     max-width: 900px;
     margin: 0 auto;
@@ -275,7 +275,7 @@ nav {
 
 .experience-item, .education-item {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid var(--border-color);
@@ -285,10 +285,29 @@ nav {
     border-bottom: none;
 }
 
+.experience-logo, .education-logo {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.experience-logo img, .education-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
 .experience-date, .education-date {
-    min-width: 160px;
+    min-width: 140px;
     color: var(--text-light);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
@@ -844,13 +863,20 @@ footer {
 
     /* Responsive Experience & Education */
     .experience-item, .education-item {
-        flex-direction: column;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .experience-logo, .education-logo {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
     }
 
     .experience-date, .education-date {
         min-width: auto;
         font-size: 0.9rem;
+        flex-basis: 100%;
     }
 
     .timeline::after {
