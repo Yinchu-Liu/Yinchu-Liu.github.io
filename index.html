@@ -299,11 +299,14 @@
         <div class="container">
             <h2 class="section-title">Visitor Map</h2>
             <div class="visitor-map-container">
-                <div class="map-fallback" id="visitor-map-fallback">
-                    Visitor map is currently unavailable. Please check your internet connection or allow scripts from clustrmaps.com.
+                <div class="map-placeholder">
+                    <div class="map-placeholder__graphic"></div>
+                    <div class="map-placeholder__text">
+                        Live visitor map is not available in this environment.
+                        This section is reserved for IP-based location analytics when the external service is reachable.
+                    </div>
                 </div>
-                <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n" onload="document.getElementById('visitor-map-fallback').style.display='none';" onerror="document.getElementById('visitor-map-fallback').style.display='block';"></script>
-                <p class="map-caption">Map shows visitor locations by IP address</p>
+                <p class="map-caption">Map shows visitor locations by IP address when the external service is available.</p>
             </div>
         </div>
     </section>
