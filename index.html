@@ -299,11 +299,8 @@
         <div class="container">
             <h2 class="section-title">Visitor Map</h2>
             <div class="visitor-map-container">
-                <div class="map-placeholder">
-                    <div class="map-placeholder__graphic"></div>
-                    <div class="map-placeholder__text">
-                        Visitor map data is unavailable here. When the external analytics service is reachable, this section will display visitor locations by IP address.
-                    </div>
+                <div id="clustrmaps-globe-container">
+                    <script type="text/javascript" id="clstr_globe" async src="https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n"></script>
                 </div>
                 <p class="map-caption">Visitor locations display once the external service is available.</p>
             </div>
@@ -326,7 +323,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-
-    <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n"></script>
 </body>
 </html>
