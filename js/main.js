@@ -152,5 +152,5 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ClustrMaps script is loaded at the end of body tag
-// It will automatically render the globe
+// Visitor map is rendered by the GeoVisite embed in index.html
+// Current visitor IP details are loaded in visitor-map.js
