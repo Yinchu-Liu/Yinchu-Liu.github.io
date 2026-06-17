@@ -299,16 +299,10 @@
         <div class="container">
             <h2 class="section-title">Visitor Map</h2>
             <div class="visitor-map-container">
-                <div id="visitor-map-widget" class="visitor-map-widget">
-                    <script type="text/javascript" src="https://geoloc2.geovisite.com/private/geoglobe.js?compte=yinchuliu&amp;referer=https://yinchu-liu.github.io&amp;compte_client="></script>
-                    <noscript>
-                        <a href="https://www.geovisite.com" rel="noopener noreferrer">
-                            <img src="https://geoloc2.geovisite.com/private/geoglobe.php?compte=yinchuliu&amp;referer=https://yinchu-liu.github.io&amp;compte_client=" alt="Visitor globe map" class="visitor-map-fallback">
-                        </a>
-                    </noscript>
-                </div>
-                <div id="visitor-ip-info" class="visitor-ip-info" aria-live="polite"></div>
-                <p class="map-caption">Map shows visitor locations by IP address. <a href="https://www.geovisites.com/zoom.php?compte=yinchuliu" target="_blank" rel="noopener noreferrer">View detailed stats</a></p>
+                <center>
+                    <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=lsn-VUYeT27u9BP7laJazr2bCaLN0kVGr3yYLxh0eXM&w=300&t=n"></script>
+                </center>
+                <p class="map-caption">Map shows visitor locations by IP address</p>
             </div>
         </div>
     </section>
@@ -329,6 +323,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/visitor-map.js"></script>
 </body>
 </html>
