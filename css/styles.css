@@ -359,6 +359,52 @@ nav {
     margin-top: 5px;
 }
 
+/* Academic Service Section */
+.academic-service-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.academic-service-item {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.academic-service-item h3 {
+    color: var(--text-color);
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.academic-service-item h4 {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.academic-service-item h4 a {
+    color: var(--primary-color);
+}
+
+.academic-service-item h4 a:hover {
+    color: var(--accent-color);
+}
+
+.academic-service-item .date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.academic-service-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
 /* Legacy Timeline Styles (kept for compatibility) */
 .timeline {
     position: relative;
