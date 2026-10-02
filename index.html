@@ -7,18 +7,14 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Force dark mode */
-        html, body {
-            background-color: #121212 !important;
-            color: #e0e0e0 !important;
-        }
-    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <div class="logo">YL</div>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
@@ -168,6 +164,15 @@
         <div class="container">
             <h2 class="section-title">Publications</h2>
             <div class="publications-container">
+                <div class="publication-item">
+                    <h3>Learning to Stabilize: A Policy-Based Approach to Physics Simulation Parameter Control</h3>
+                    <p class="publication-authors">Yinchu Liu, Sheldon Andrews</p>
+                    <p class="publication-venue">MIG 2026 - Motion, Interaction, and Games</p>
+                    <div class="publication-links">
+                        <a href="#" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                    </div>
+                </div>
                 <div class="publication-item">
                     <h3>Graph Partitioning Algorithms for Rigid Body Simulations</h3>
                     <p class="publication-authors">Yinchu Liu, Sheldon Andrews</p>
