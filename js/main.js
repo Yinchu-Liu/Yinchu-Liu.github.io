@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Force light mode (white) as default
-    localStorage.removeItem('theme');
-    html.setAttribute('data-theme', 'light');
-    updateThemeIcon('light');
+    // Check for saved theme preference or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
 
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
