@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
+    // Force light mode (white) as default
+    localStorage.removeItem('theme');
+    html.setAttribute('data-theme', 'light');
+    updateThemeIcon('light');
 
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
+        console.log('Theme changed to:', newTheme);
     });
 
     function updateThemeIcon(theme) {
