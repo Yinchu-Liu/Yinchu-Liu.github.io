@@ -321,9 +321,9 @@ nav {
 }
 
 .experience-logo, .education-logo {
-    width: 80px;
-    height: 80px;
-    min-width: 80px;
+    width: 240px;
+    height: 240px;
+    min-width: 240px;
     border-radius: var(--border-radius);
     overflow: hidden;
     background-color: var(--card-bg);
@@ -955,9 +955,9 @@ footer {
     }
 
     .experience-logo, .education-logo {
-        width: 45px;
-        height: 45px;
-        min-width: 45px;
+        width: 120px;
+        height: 120px;
+        min-width: 120px;
     }
 
     .experience-date, .education-date {
