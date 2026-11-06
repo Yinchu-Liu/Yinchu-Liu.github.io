@@ -247,10 +247,18 @@ nav {
     font-family: 'Poppins', sans-serif;
 }
 
+.hero-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0.95;
+}
+
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 15px;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .social-links {
@@ -1032,6 +1040,10 @@ footer {
 
     .hero-content h1 {
         font-size: 3rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
     }
 
     .projects-grid {
