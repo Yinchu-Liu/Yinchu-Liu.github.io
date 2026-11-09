@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning to Stabilize: A Policy-Based Approach to Physics Simulation Parameter Control | Yinchu Liu</title>
+    <meta name="description" content="Learning to Stabilize: A Policy-Based Approach to Physics Simulation Parameter Control. Yinchu Liu, Maud Marchal, Paul Kry, Kenny Erleben, Sheldon Andrews. MIG '26, December 2026.">
+    <link rel="canonical" href="https://yinchu-liu.github.io/publications/learning-to-stabilize.html">
+
+    <!-- Google Scholar citation meta tags -->
+    <meta name="citation_title" content="Learning to Stabilize: A Policy-Based Approach to Physics Simulation Parameter Control">
+    <meta name="citation_author" content="Liu, Yinchu">
+    <meta name="citation_author" content="Marchal, Maud">
+    <meta name="citation_author" content="Kry, Paul">
+    <meta name="citation_author" content="Erleben, Kenny">
+    <meta name="citation_author" content="Andrews, Sheldon">
+    <meta name="citation_publication_date" content="2026/12/11">
+    <meta name="citation_conference_title" content="Proceedings of the 19th Annual ACM SIGGRAPH Conference on Motion, Interaction and Games (MIG '26)">
+    <meta name="citation_doi" content="10.1145/3828647.3857301">
+    <meta name="citation_pdf_url" content="https://yinchu-liu.github.io/publications/learning-to-stabilize.pdf">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">YL</div>
+                <ul class="nav-links">
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero" style="height: auto; padding: 60px 0;">
+                <div class="hero-content">
+                    <h1 style="font-size: 2rem;">Learning to Stabilize: A Policy-Based Approach to Physics Simulation Parameter Control</h1>
+                    <h2>Yinchu Liu, Maud Marchal, Paul Kry, Kenny Erleben, Sheldon Andrews</h2>
+                    <p class="subtitle">MIG '26 - Motion, Interaction, and Games · December 11–13, 2026 · Charleston, SC, USA</p>
+                    <div class="publication-links" style="justify-content: center; margin-top: 20px;">
+                        <a href="learning-to-stabilize.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="https://doi.org/10.1145/3828647.3857301" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                        <a href="../img/MIG_2026_Video.mp4" target="_blank"><i class="fas fa-video"></i> Video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="publication-item">
+                <h3>Abstract</h3>
+                <p>Numerical stability in physics-based simulation relies on a careful balancing act between various hyperparameters. Sub-stepping and damping are primary levers for this control, yet they impose a problematic trade-off. Insufficient sub-stepping triggers divergence, while excessive sub-stepping incurs computational overhead. The interplay of damping and stiffness presents similar challenges. Under-damped systems risk numerical explosions, whereas over-compensation leads to artificial energy loss, robbing the simulation of its physical vitality and resulting in perceptually “soft” interactions. Existing approaches typically rely on fixed or heuristically tuned parameters that do not optimally balance this trade-off at each time step. We propose a reinforcement learning (RL) framework that learns adaptive hyperparameter policies, enabling an RL agent to dynamically select parameters such as the number of sub-steps and damping at each simulation time step. To improve generalization and scalability, we investigate both a global policy approach and a policy applied to local subdomains, which offers more fine-grained adaptivity. We validate the framework on several challenging stiff rigid-body simulation scenarios involving bilateral constraints and frictional contact. Our results show that the learned policies achieve stable and robust simulations with reduced computational cost and minimized artificial dissipation compared to manually tuned baselines.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Yinchu Liu. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
