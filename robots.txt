@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yinchu-liu.github.io/sitemap.xml
